@@ -1,68 +1,111 @@
-/* Estilos Customizados */
+/* ========== EFEITO NEON PARA TEXTOS ========== */
+/* Cria um efeito de brilho neon usando múltiplas camadas de sombra */
 .neon-text {
-    text-shadow: 0 0 10px rgba(79, 70, 229, 0.5),
-                 0 0 20px rgba(79, 70, 229, 0.3),
-                 0 0 30px rgba(79, 70, 229, 0.2);
+    text-shadow: 
+        0 0 10px rgba(79, 70, 229, 0.5),  /* Camada interna (roxo mais intenso) */
+        0 0 20px rgba(79, 70, 229, 0.3),  /* Camada intermediária */
+        0 0 30px rgba(79, 70, 229, 0.2);  /* Camada externa (mais suave) */
 }
 
+/* ========== EFEITO 3D NO HOVER ========== */
+/* Cria uma transição suave para transformações e sombras */
 .hover-3d {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease,        /* Anima transformações em 0.3s */
+                box-shadow 0.3s ease;      /* Anima sombras em 0.3s */
 }
 
+/* Efeito quando o elemento está sob o mouse */
 .hover-3d:hover {
-    transform: translateY(-5px) rotateX(10deg) rotateY(-5deg);
-    box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+    transform: 
+        translateY(-5px)                  /* Move 5px para cima */
+        rotateX(10deg)                     /* Inclina 10° no eixo X */
+        rotateY(-5deg);                    /* Inclina -5° no eixo Y */
+    box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25); /* Sombra colorida */
 }
 
+/* ========== ANIMAÇÃO DE ENTRADA ========== */
+/* Define a animação de aparecer subindo */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;                        /* Começa invisível */
+        transform: translateY(20px);       /* Começa 20px abaixo */
+    }
+    to {
+        opacity: 1;                        /* Termina totalmente visível */
+        transform: translateY(0);          /* Posição original */
+    }
 }
 
+/* Aplica a animação fadeInUp */
 .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: 
+        fadeInUp 0.6s      /* Duração de 0.6 segundos */
+        ease-out           /* Aceleração no final */
+        forwards;          /* Mantém o estado final */
 }
 
+/* ========== CARTA FLUTUANTE ========== */
+/* Elemento que flutua suavemente */
 .floating-card {
-    position: absolute;
-    background: linear-gradient(45deg, #4F46E5, #8B5CF6);
-    opacity: 0.1;
-    border-radius: 24px;
-    animation: float 20s infinite linear;
+    position: absolute;     /* Posicionamento absoluto */
+    background: linear-gradient(45deg, #4F46E5, #8B5CF6); /* Gradiente roxo */
+    opacity: 0.1;           /* Transparência */
+    border-radius: 24px;    /* Bordas arredondadas */
+    animation: 
+        float 20s          /* Duração de 20s */
+        infinite           /* Repetição infinita */
+        linear;            /* Velocidade constante */
 }
 
+/* Animação de flutuação */
 @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
-    100% { transform: translateY(0) rotate(360deg); }
+    0% {
+        transform: translateY(0) rotate(0deg);  /* Posição inicial */
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg); /* Pico da animação */
+    }
+    100% {
+        transform: translateY(0) rotate(360deg); /* Volta à posição inicial */
+    }
 }
 
+/* ========== EFEITO NO VIDEO DO HERÓI ========== */
 #hero video {
-    transform: scale(1.2);
-    animation: video-zoom 20s infinite alternate;
+    transform: scale(1.2);  /* Aumenta o vídeo em 20% */
+    animation: 
+        video-zoom 20s     /* Duração de 20s */
+        infinite          /* Repetição infinita */
+        alternate;        /* Vai e volta */
 }
 
+/* Animação de zoom suave */
 @keyframes video-zoom {
-    0% { transform: scale(1.2); }
-    100% { transform: scale(1.5); }
+    0% {
+        transform: scale(1.2); /* Tamanho inicial */
+    }
+    100% {
+        transform: scale(1.5); /* Aumenta para 150% */
+    }
 }
 
-/* Tooltip para tecnologias */
+/* ========== TOOLTIP PARA TECNOLOGIAS ========== */
 .tech-icon {
-    position: relative;
-    cursor: pointer;
+    position: relative;    /* Permite posicionamento absoluto no filho */
+    cursor: pointer;       /* Muda cursor para pointer */
 }
 
+/* Tooltip que aparece no hover */
 .tech-icon:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(79, 70, 229, 0.9);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    white-space: nowrap;
+    content: attr(data-tooltip); /* Pega texto do atributo data-tooltip */
+    position: absolute;    /* Posiciona em relação ao elemento pai */
+    bottom: 100%;          /* Posiciona acima do elemento */
+    left: 50%;             /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino de centralização */
+    background: rgba(79, 70, 229, 0.9); /* Fundo roxo semi-transparente */
+    color: white;          /* Texto branco */
+    padding: 4px 8px;      /* Espaçamento interno */
+    border-radius: 4px;    /* Bordas arredondadas */
+    font-size: 0.875rem;   /* Tamanho de fonte (14px) */
+    white-space: nowrap;   /* Impressão de quebra de linha */
 }
